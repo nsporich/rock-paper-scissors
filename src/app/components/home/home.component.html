@@ -1,0 +1,25 @@
+<ng-container *ngIf="!playerName">
+    <div class="row justify-content-center">
+        <div class="col-6 input-group">
+            <input class="form-control form-control-lg" type="text" placeholder="Enter Name..." [(ngModel)]="tempName"
+                name="playerName">
+            <div class="input-group-append">
+                <button class="btn btn-outline-primary" type="button" (click)="setName()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+</ng-container>
+
+<ng-container *ngIf="playerName">
+    <div class="menu-buttons">
+        <button type="button" class="btn btn-primary" (click)="startNewGame()">New Game</button>
+        <button *ngIf="score.wins || score.losses" type="button" class="btn btn-primary"
+            (click)="continueFromSave()">Continue</button>
+    </div>
+
+    <div *ngIf="score.wins || score.losses" class="saved-game">
+        <h4>Found Saved Game!</h4>
+        <p>{{this.score.wins}} Wins - {{this.score.losses}} Losses</p>
+    </div>
+</ng-container>

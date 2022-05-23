@@ -1,0 +1,32 @@
+<ng-container *ngIf="countdown > 0">
+    <div class="countdown">{{countdown}}</div>
+</ng-container>
+
+<ng-container *ngIf="countdown === 0">
+    <div class="results-text">
+        <ng-container *ngIf="!draw">
+            <p>{{winner.choice}} ({{winner.name}}) beats {{loser.choice}} ({{loser.name}})</p>
+            <p class="winner">{{winner.name}} Wins!</p>
+        </ng-container>
+        <ng-container *ngIf="draw">
+            <p>{{results.playerChoice}} ({{results.playerName}}) equals {{results.opponentChoice}}
+                ({{results.opponentName}})</p>
+            <p class="winner">It's a draw!</p>
+        </ng-container>
+    </div>
+    <div class="menu-buttons">
+        <button type="button" class="btn btn-primary" (click)="startNewGame()">Start Over</button>
+        <button type="button" class="btn btn-primary" (click)="startRematch()">Rematch</button>
+    </div>
+    <div class="row">
+        <div class="col-6 record">
+            <p>{{results.playerName}}'s Record</p>
+            <p>Wins: {{playerSaveData.wins}} / Losses: {{playerSaveData.losses}} / Draws: {{playerSaveData.draws}}</p>
+        </div>
+        <div class="col-6 record">
+            <p>{{results.opponentName}}'s Record</p>
+            <p>Wins: {{opponentSaveData.wins}} / Losses: {{opponentSaveData.losses}} / Draws: {{opponentSaveData.draws}}</p>
+        </div>
+    </div>
+
+</ng-container>

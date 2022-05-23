@@ -1,0 +1,130 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+$navy: #112B3C;
+$blue: #205375;
+$orange: #F66B0E;
+$grey: #EFEFEF;
+
+body {
+    background-color: $navy;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: $grey;
+    text-align: center;
+}
+
+.header {
+    margin-top: 100px;
+}
+
+.main-content {
+    height: 500px;
+    background-color: $navy;
+    align-items: center;
+}
+
+.header {
+    color: $orange;
+    text-align: center;
+}
+
+.saved-game {
+    color: $grey;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.menu-buttons {
+    display: flex;
+    justify-content: center;
+
+    // margin-top: 100px;
+    button {
+        width: 120px;
+        margin: 0 15px;
+    }
+}
+
+.game-choices {
+    width: 450px;
+    height: 70px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+
+    .image {
+        font-size: 60px;
+        color: $grey;
+        margin: 0 10px;
+    }
+
+    .row {
+        justify-content: center;
+    }
+}
+
+.game-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 100px;
+
+    button {
+        width: 120px;
+    }
+}
+
+.btn-primary,
+.btn-outline-primary {
+    background-color: $blue;
+    border-color: $blue;
+    color: $grey;
+}
+
+.cover-art {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+
+    .image {
+        font-size: 60px;
+        color: $grey;
+        margin: 0 30px;
+    }
+}
+
+#title {
+    margin-top: -100px;
+}
+
+.countdown {
+    font-size: 200px;
+    color: $grey;
+    text-align: center;
+}
+
+.results-text {
+    font-size: 50px;
+    color: $grey;
+    text-align: center;
+    .winner {
+        font-size: 80px;
+        color: $orange;
+    }
+}
+
+.record {
+    p {
+        color: $grey;
+        font-size: 24px;
+        text-align: center;
+    }
+}
+

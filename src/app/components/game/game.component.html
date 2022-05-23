@@ -1,0 +1,73 @@
+<ng-container *ngIf="!opponentName && !player2">
+    <h3>Please select your opponent</h3>
+    <div class="menu-buttons">
+        <button type="button" class="btn btn-primary" (click)="selectOpponent('Player')">Player</button>
+        <button type="button" class="btn btn-primary" (click)="selectOpponent('Computer')">Computer</button>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="!opponentName && player2">
+    <h3>Please enter opponent's name</h3>
+    <div class="row justify-content-center menu-buttons">
+        <div class="col-6 input-group">
+            <input class="form-control form-control-lg" type="text" placeholder="Enter Name..."
+                [(ngModel)]="tempOpponentName" name="tempOpponentName">
+            <div class="input-group-append">
+                <button class="btn btn-outline-primary" type="button" (click)="setOpponentName()">Submit</button>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="opponentName">
+    <h3 id="title">{{playerName}} vs. {{opponentName}}</h3>
+
+    <ng-container *ngIf="!gameActive">
+        <div class="row game-buttons">
+            <div class="col-6 game-choices" id="player">
+                <ng-container *ngIf="!playerChoice">
+                    <div class="row">
+                        <h5>{{playerName}} choose:</h5>
+                    </div>
+                    <div class="row">
+                        <div class="image" id="rock" (click)="select('Player', 'Rock')">
+                            <i class="fa fa-hand-rock-o" aria-hidden="true"></i>
+                        </div>
+                        <div class="image" id="paper" (click)="select('Player', 'Paper')">
+                            <i class="fa fa-hand-paper-o" aria-hidden="true"></i>
+                        </div>
+                        <div class="image" id="scissors" (click)="select('Player', 'Scissors')">
+                            <i class="fa fa-hand-scissors-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </ng-container>
+                <h5 *ngIf="playerChoice">{{playerName}} has chosen!</h5>
+            </div>
+            <div class="col-6 game-choices" id="opponent">
+                <ng-container *ngIf="!opponentChoice">
+                    <div class="row">
+                        <h5>{{opponentName}} choose:</h5>
+                    </div>
+                    <div class="row">
+                        <div class="image" id="rock" (click)="select('Opponent', 'Rock')">
+                            <i class="fa fa-hand-rock-o" aria-hidden="true"></i>
+                        </div>
+                        <div class="image" id="paper" (click)="select('Opponent', 'Paper')">
+                            <i class="fa fa-hand-paper-o" aria-hidden="true"></i>
+                        </div>
+                        <div class="image" id="scissors" (click)="select('Opponent', 'Scissors')">
+                            <i class="fa fa-hand-scissors-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </ng-container>
+                <h5 *ngIf="opponentChoice">{{opponentName}} has chosen!</h5>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="gameActive">
+        <app-results [results]="results" (onRematch)="rematch()"></app-results>
+    </ng-container>
+
+</ng-container>
